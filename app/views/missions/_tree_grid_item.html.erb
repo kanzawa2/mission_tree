@@ -1,0 +1,29 @@
+<% if mission.root? %>
+  <tr class="treegrid-mission<%= mission.id %>">
+  <% else %>
+  <tr class="treegrid-mission<%= mission.id %> treegrid-parent-mission<%= mission.parent_id %>">
+<% end %>
+  <td>
+    <%= link_to mission.name, mission, class: 'mission' %>
+  </td>
+  <td>
+    <%= mission.created_at %>
+  </td>
+  <td>
+    <%= link_to (fa_icon 'pencil'), edit_mission_path(mission) =%>
+  </td>
+  <td>
+    <%= link_to (fa_icon 'trash-o'),
+	mission, method: :delete, data: { confirm: 'Are you sure?' } %>
+  </td>
+  
+</tr>
+
+<%= render partial: 'missions/tree_grid_item',
+    collection: mission.children,
+    as: :mission %>
+
+<%= render partial: 'tasks/tree_grid_item',
+    collection: mission.tasks,
+    as: :task %>
+
