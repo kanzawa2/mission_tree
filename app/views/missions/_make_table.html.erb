@@ -1,0 +1,14 @@
+<table class="table table-condensed table-treegrid">
+  <thead>
+    <tr>
+      <th> <%= Mission.human_attribute_name(:name) %> </th>
+      <th> <%= Mission.human_attribute_name(:created_at) %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% roots.each do |root| %>
+    <%== mission_traverse(root) %>
+    <% end %>
+  </tbody>
+</table>
+    

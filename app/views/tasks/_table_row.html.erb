@@ -1,0 +1,15 @@
+<tr class="treegrid-task<%= task.id %> treegrid-parent-mission<%= task.mission_id %>">
+  <td>
+    <%= link_to task.name, task, class: 'task' %>
+  </td>
+  <td>
+    <%= task.created_at %>
+  </td>
+  <td>
+    <%= link_to (fa_icon 'pencil'), edit_task_path(task) =%>
+  </td>
+  <td>
+    <%= link_to (fa_icon 'trash-o'),
+	task, method: :delete, data: { confirm: 'Are you sure?' } %>
+  </td>
+</tr>

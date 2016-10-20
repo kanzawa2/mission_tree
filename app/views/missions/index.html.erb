@@ -2,7 +2,7 @@
 <div class="page-header">
   <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
 </div>
-<%= make_table(Mission.roots, TableCreater.new) %>
+<%= render partial: "missions/make_table", locals: {roots: @missions.roots}%>
 
 <%= link_to t('.new', :default => t("helpers.links.new")),
             new_mission_path,
