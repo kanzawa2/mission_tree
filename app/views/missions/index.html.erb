@@ -1,8 +1,9 @@
 <%- model_class = Mission -%>
+
 <div class="page-header">
   <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
 </div>
-<%= render partial: "missions/make_table", locals: {roots: @missions.roots}%>
+<%= render partial: "missions/make_table", locals: {roots: @missions.roots} %>
 
 <%= link_to t('.new', :default => t("helpers.links.new")),
             new_mission_path,
